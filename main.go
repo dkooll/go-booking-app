@@ -42,7 +42,7 @@ func main() {
 
 		var firstNames []string
 		for _, x := range bookings {
-			names := strings.Fields(x)
+			names := strings.Fields(x) // Split the string into a slice of strings
 			firstNames = append(firstNames, names[0])
 		}
 
