@@ -21,7 +21,6 @@ func main() {
 		isValidName, isValidEmail, isValidTicket := validateUserInput(firstName, lastName, email, userTickets)
 
 		if isValidName && isValidEmail && isValidTicket {
-
 			bookTicket(userTickets, firstName, lastName, email)
 
 			firstNames := getFirstNames()
@@ -95,5 +94,4 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 
 	fmt.Printf("Thanks %v %v for booking %v tickets. We have sent a confirmation email to %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
-
 }
