@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -10,7 +11,7 @@ const conferenceTickets int = 50
 
 var conferenceName = "Go Conference"
 var remainingTickets uint = 50
-var bookings = []string{}
+var bookings = make([]map[string]string, 0) //create a empty list of maps. 0 will be expanded dynamically
 
 func main() {
 
@@ -52,9 +53,9 @@ func greetUsers() {
 
 func getFirstNames() []string { //outputs contains only the type
 	var firstNames []string
-	for _, x := range bookings {
-		names := strings.Fields(x) // Split the string into a slice of strings
-		firstNames = append(firstNames, names[0])
+	for _, booking := range bookings {
+		//names := strings.Fields(x) // Split the string into a slice of strings
+		firstNames = append(firstNames, booking["firstName"])
 	}
 	return firstNames
 }
@@ -90,7 +91,16 @@ func getUserInput() (string, string, string, uint) {
 
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
 	remainingTickets = remainingTickets - userTickets
-	bookings = append(bookings, firstName+" "+lastName)
+
+	//create a empty map per user. We cannot mix data types in a map
+	userData := make(map[string]string)
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+	userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) //convert uint to string
+
+	bookings = append(bookings, userData)
+	fmt.Printf("List of blookings is %v\n", bookings)
 
 	fmt.Printf("Thanks %v %v for booking %v tickets. We have sent a confirmation email to %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
