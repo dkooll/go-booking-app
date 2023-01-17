@@ -4,7 +4,7 @@ This code is a booking application for a Go conference. It starts by greeting th
 them for input. It validates the user input and if it is valid, it books the ticket for the user, adds it to  
 the list of bookings, and prints out a confirmation.
 
-It also prints out the remaining tickets and the list of booked tickets. Finally, it sends a ticket to the user's
+It also prints out the remaining tickets and the list of booked tickets. Finally, it sends a ticket to the user's  
 email address.
 
 ## Details
