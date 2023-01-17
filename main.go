@@ -41,7 +41,7 @@ func main() {
 			remainingTickets = remainingTickets - userTickets
 			bookings = append(bookings, firstName+" "+lastName)
 
-			fmt.Printf("Thanks you %v %v for booking %v tickets. We have sent a confirmation email to %v\n", firstName, lastName, userTickets, email)
+			fmt.Printf("Thanks %v %v for booking %v tickets. We have sent a confirmation email to %v\n", firstName, lastName, userTickets, email)
 			fmt.Printf("We have %v tickets remaining\n", remainingTickets)
 
 			var firstNames []string
