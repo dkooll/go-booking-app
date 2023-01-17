@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
+	"sync"
+	"time"
 )
 
 // package level variables, available to all functions
@@ -11,7 +12,16 @@ const conferenceTickets int = 50
 
 var conferenceName = "Go Conference"
 var remainingTickets uint = 50
-var bookings = make([]map[string]string, 0) //create a empty list of maps. 0 will be expanded dynamically
+var bookings = make([]UserData, 0) //empty list of UserData struct. 0 will be expanded dynamically
+
+type UserData struct {
+	FirstName       string
+	LastName        string
+	Email           string
+	NumberOfTickets uint
+}
+
+var wg = sync.WaitGroup{}
 
 func main() {
 
@@ -23,6 +33,9 @@ func main() {
 
 		if isValidName && isValidEmail && isValidTicket {
 			bookTicket(userTickets, firstName, lastName, email)
+
+			wg.Add(1)
+			go sendTicket(userTickets, firstName, lastName, email) //add concurrency, other threads can run while this is running
 
 			firstNames := getFirstNames()
 			fmt.Printf("The first names of booking are %v\n", firstNames)
@@ -42,6 +55,7 @@ func main() {
 				fmt.Println("You have entered an invalid number of tickets")
 			}
 		}
+		wg.Wait()
 	}
 }
 
@@ -54,8 +68,7 @@ func greetUsers() {
 func getFirstNames() []string { //outputs contains only the type
 	var firstNames []string
 	for _, booking := range bookings {
-		//names := strings.Fields(x) // Split the string into a slice of strings
-		firstNames = append(firstNames, booking["firstName"])
+		firstNames = append(firstNames, booking.FirstName)
 	}
 	return firstNames
 }
@@ -92,16 +105,26 @@ func getUserInput() (string, string, string, uint) {
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
 	remainingTickets = remainingTickets - userTickets
 
-	//create a empty map per user. We cannot mix data types in a map
-	userData := make(map[string]string)
-	userData["firstName"] = firstName
-	userData["lastName"] = lastName
-	userData["email"] = email
-	userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) //convert uint to string
+	userData := UserData{
+		FirstName:       firstName,
+		LastName:        lastName,
+		Email:           email,
+		NumberOfTickets: userTickets,
+	}
 
 	bookings = append(bookings, userData)
 	fmt.Printf("List of blookings is %v\n", bookings)
 
 	fmt.Printf("Thanks %v %v for booking %v tickets. We have sent a confirmation email to %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+}
+
+// simulate sending a ticket
+func sendTicket(userTickets uint, firstName string, lastName string, email string) {
+	time.Sleep(10 * time.Second)
+	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+	fmt.Println("################")
+	fmt.Printf("Sending ticket:\n %v \nto mail address %v\n", ticket, email)
+	fmt.Println("################")
+	wg.Done()
 }
