@@ -37,7 +37,7 @@ Finally, a WaitGroup is used to add concurrency to the application, so other thr
 ## Concepts Learned
 
 - Using package-level variables and constants
-- Using the `sync` package to add concurrency to an application
+- Using the sync package to add concurrency to an application
 - Using the time package to add a delay to a function
 - Making use of structs and structs fields to store user data
 - Creating dynamic slices
