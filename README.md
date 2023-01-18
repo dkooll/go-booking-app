@@ -1,4 +1,4 @@
-# Booking App
+# Go Booking App
 
 This code is a booking application for a Go conference. It starts by greeting the user and then prompts  
 them for input. It validates the user input and if it is valid, it books the ticket for the user, adds it to  
