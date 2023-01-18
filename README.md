@@ -35,3 +35,11 @@ The sendTicket() function is used to simulate sending a ticket to the user. It p
 Finally, a WaitGroup is used to add concurrency to the application, so other threads can run while the sendTicket() function is running.
 
 ## Concepts Learned
+
+- Using package-level variables and constants
+- Using the `sync` package to add concurrency to an application
+- Using the time package to add a delay to a function
+- Making use of structs and structs fields to store user data
+- Creating dynamic slices
+- Using waitgroups to keep track of the number of goroutines running, allowing the main thread to wait for them to finish
+- Process function inputs and return values
