@@ -7,6 +7,11 @@ the list of bookings, and prints out a confirmation.
 It also prints out the remaining tickets and the list of booked tickets. Finally, it sends a ticket to the user's  
 email address.
 
+## Overview
+### Function Flow
+
+![Function Flow](/images/functionflow.png "function flow")
+
 ## Details
 
 The code starts by initializing package-level variables. This includes a constant for the total number of tickets and a couple of variables to keep track of the remaining tickets, the conference name, and an empty list of
@@ -28,3 +33,5 @@ The getFirstNames() function is used to get the first names of all the users who
 The sendTicket() function is used to simulate sending a ticket to the user. It prints out a message and waits 10 seconds before finishing.
 
 Finally, a WaitGroup is used to add concurrency to the application, so other threads can run while the sendTicket() function is running.
+
+## Concepts Learned
