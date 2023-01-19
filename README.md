@@ -3,12 +3,12 @@
 This is a Go program that simulates a ticket booking application for a conference. The program starts by
 greeting the user and displaying the number of available tickets.
 
-Then, it enters a loop that prompts the user for their first name, last name, email, and number of tickets  
-they want to book. The user input is then validated, and if it is valid, the tickets are booked and a  
-confirmation email is sent to the user in a separate goroutine.  
+Then, it enters a loop that prompts the user for their first name, last name, email, and number of tickets
+they want to book. The user input is then validated, and if it is valid, the tickets are booked and a
+confirmation email is sent to the user in a separate goroutine.
 
-If the user input is not valid, an error message is displayed. The program also keeps track of all bookings  
-and the first names of the bookers in a slice of UserData structs. The program ends when all the tickets  
+If the user input is not valid, an error message is displayed. The program also keeps track of all bookings
+and the first names of the bookers in a slice of UserData structs. The program ends when all the tickets
 have been sold out.
 
 ## Overview
