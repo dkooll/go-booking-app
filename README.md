@@ -1,6 +1,6 @@
 # Go Booking App
 
-This is a Go program that simulates a ticket booking application for a conference. The program starts by  
+This is a Go program that simulates a ticket booking application for a conference. The program starts by
 greeting the user and displaying the number of available tickets.
 
 Then, it enters a loop that prompts the user for their first name, last name, email, and number of tickets  
