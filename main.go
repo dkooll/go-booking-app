@@ -90,11 +90,17 @@ func getUserInput() (string, string, string, uint) {
 	fmt.Println("Please enter your first name")
 	fmt.Scan(&firstName)
 
+	firstName = strings.TrimSpace(firstName)
+
 	fmt.Println("Please enter your last name")
 	fmt.Scan(&lastName)
 
+	lastName = strings.TrimSpace(lastName)
+
 	fmt.Println("Please enter your email address")
 	fmt.Scan(&email)
+
+	email = strings.TrimSpace(email)
 
 	fmt.Println("Enter the number of tickets you want to book")
 	fmt.Scan(&userTickets)
