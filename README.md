@@ -23,18 +23,18 @@ UserData structs.
 
 The UserData struct stores information about the user booking tickets such as their first name, last name, email address, and the number of tickets they are purchasing.
 
-The main() function is where the application logic is. It starts with a greetUsers() function, which prints out a welcome message to the user. It then enters a loop to get user input from the command line.
+The main() function is where the application logic is. It starts with a [greetUsers()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L62) function, which prints out a welcome message to the user. It then enters a loop to get user input from the command line.
 
-The getUserInput() function gets the user's first name, last name, email address, and the number of tickets they want to book.
+The [getUserInput()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L84) function gets the user's first name, last name, email address, and the number of tickets they want to book.
 
-The validateUserInput() function checks if the user's input is valid. It checks if the first and last name are not too short, if the email address is valid, and if the number of tickets requested is valid.
+The [validateUserInput()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L76) function checks if the user's input is valid. It checks if the first and last name are not too short, if the email address is valid, and if the number of tickets requested is valid.
 
-The bookTicket() function is used to book the tickets. It subtracts the number of tickets requested from the remaining tickets and adds the user's information to a list of UserData
+The [bookTicket()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L111) function is used to book the tickets. It subtracts the number of tickets requested from the remaining tickets and adds the user's information to a list of UserData
 structs. It also prints out a confirmation message and the remaining tickets.
 
-The getFirstNames() function is used to get the first names of all the users who have booked tickets.
+The [getFirstNames()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L68) function is used to get the first names of all the users who have booked tickets.
 
-The sendTicket() function is used to simulate sending a ticket to the user. It prints out a message and waits 10 seconds before finishing.
+The [sendTicket()](https://github.com/dkooll/go-booking-app/blob/e0e57d0e9e94d392378d79c0a50e30133a0a5be9/main.go#L129) function is used to simulate sending a ticket to the user. It prints out a message and waits 10 seconds before finishing.
 
 Finally, a WaitGroup is used to add concurrency to the application, so other threads can run while the sendTicket() function is running.
 
