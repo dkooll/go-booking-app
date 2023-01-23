@@ -14,7 +14,7 @@ have been sold out.
 ## Overview
 ### Function Flow
 
-![Function Flow](/images/functionflow.png "function flow")
+![Ticket Booking](/images/ticket-booking.png "ticket booking")
 
 ## Details
 
