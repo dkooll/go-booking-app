@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// package level variables, available to all functions
 const conferenceTickets int = 50
 
 var conferenceName = "Go Conference"
@@ -35,7 +34,7 @@ func main() {
 			bookTicket(userTickets, firstName, lastName, email)
 
 			wg.Add(1)
-			go sendTicket(userTickets, firstName, lastName, email) //add concurrency, other threads can run while this is running
+			go sendTicket(userTickets, firstName, lastName, email)
 
 			firstNames := getFirstNames()
 			fmt.Printf("The first names of booking are %v\n", firstNames)
@@ -65,7 +64,7 @@ func greetUsers() {
 	fmt.Println("Get your tickets here to attend")
 }
 
-func getFirstNames() []string { //outputs contains only the type
+func getFirstNames() []string {
 	var firstNames []string
 	for _, booking := range bookings {
 		firstNames = append(firstNames, booking.FirstName)
@@ -125,7 +124,7 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 }
 
-// simulate sending a ticket
+// simulate
 func sendTicket(userTickets uint, firstName string, lastName string, email string) {
 	time.Sleep(10 * time.Second)
 	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
